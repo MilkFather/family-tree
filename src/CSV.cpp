@@ -10,12 +10,12 @@ using std::endl;
 CSVRow CSV::parseLine(string l) {
     CSVRow v;
     string tmp;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ',') {
+    for (int i = 0; i < l.length(); i++) {
+        if (l[i] == ',') {
             v.push_back(tmp);
             tmp = "";
         } else {
-            tmp += s[i];
+            tmp += l[i];
         }
     }
     if (tmp != "") {
@@ -52,7 +52,7 @@ vector<CSVRow> CSV::openFile(string filename) {
             table.push_back(r);
         }
         f.close();
-        return r;
+        return table;
     }
 }
 
