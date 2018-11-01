@@ -1,6 +1,8 @@
 #ifndef PATH_HPP
 #define PATH_HPP
 
+// 数据文件的存储路径
+
 class Path {
 public:
     static const char *peoplePath;
