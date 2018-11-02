@@ -1,8 +1,8 @@
-#ifndef RELATION_HPP
+ï»¿#ifndef RELATION_HPP
 #define RELATION_HPP
 
-// ÈË¼Ê¹ØÏµÀàRelation
-// ºÜÏñÄ³¿É¶ñµÄMeetingÄØ
+// äººé™…å…³ç³»ç±»Relation
+// å¾ˆåƒæŸå¯æ¶çš„Meetingå‘¢
 
 class Relation {
 	
