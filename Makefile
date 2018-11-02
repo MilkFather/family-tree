@@ -8,6 +8,15 @@ GPPM := g++ -g -Og -std=c++11 -I$(INCPTH)
 
 build : 
 
+
+$(BLDPTH)Person.o : $(SRCPTH)Person.cpp $(INCPTH)Person.hpp
+	@mkdir -p $(BLDPTH)
+	$(GPPC) -o $@ $<
+
+$(BLDPTH)Relation.o : $(SRCPTH)Relation.cpp $(INCPTH)Relation.hpp
+	@mkdir -p $(BLDPTH)
+	$(GPPC) -o $@ $<
+
 $(BLDPTH)RelationshipParser.o : $(SRCPTH)RelationshipParser.cpp $(INCPTH)RelationshipParser.hpp
 	@mkdir -p $(BLDPTH)
 	$(GPPC) -o $@ $<

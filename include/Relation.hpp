@@ -1,4 +1,4 @@
-﻿#ifndef RELATION_HPP
+#ifndef RELATION_HPP
 #define RELATION_HPP
 
 #include "Person.hpp"
@@ -15,7 +15,7 @@ private:
     Relationship rel;
 
 public:
-    Relation(Person &r_src, Person &r_dst, Relationship r_rel);
+    Relation(Person &r_src, Person &r_dst, Relationship r_rel): src(r_src), dst(r_dst), rel(r_rel) {};
     Person &getSrc();
     void setSrc(Person &r_src);
     Person &getDst();

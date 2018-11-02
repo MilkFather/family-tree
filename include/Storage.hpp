@@ -2,6 +2,8 @@
 #define STORAGE_HPP
 
 #include <memory>
+#include "Person.hpp"
+#include "Relation.hpp"
 
 // 负责数据存储的Storage类
 // 看得眼熟?
@@ -21,6 +23,7 @@ public:
     
 private:
     static shared_ptr<Storage> m_instance;
+    list<>
     bool m_dirty;
 };
 

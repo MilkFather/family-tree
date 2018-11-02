@@ -2,12 +2,6 @@
 
 // Relation的实现呢
 
-Relation::Relation(Person &r_src, Person &r_dst, Relationship r_rel) {
-    src = r_src;
-    dst = r_dst;
-    rel = r_rel;
-}
-
 Person &Relation::getSrc() {
     return src;
 }
