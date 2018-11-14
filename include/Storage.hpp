@@ -2,6 +2,7 @@
 #define STORAGE_HPP
 
 #include <memory>
+#include <list>
 #include "Person.hpp"
 #include "Relation.hpp"
 
@@ -18,6 +19,12 @@ private:
     Storage();
     Storage(const Storage &t_another) = delete;
     void operator=(const Storage &t_another) = delete;
+
+    void LoadPersons();
+    void LoadRelations();
+
+    void RegenerateMatrix();
+    void CalculateRelation();
     
 public:
     static shared_ptr<Storage> getInstance(void);
@@ -27,7 +34,7 @@ private:
     static shared_ptr<Storage> m_instance;
     list<Person> m_persons;
     list<Relation> m_metarelations;
-    list<Relation> m_deducedrelations;
+    Relation **relationMatrix;
     bool m_dirty;
 };
 
