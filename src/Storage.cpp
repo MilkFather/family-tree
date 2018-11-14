@@ -26,6 +26,21 @@ Storage::Storage() {
     RegenerateMatrix();
 }
 
+int Storage::FlattenTo1D(int row, int col) {
+    return row * this->m_persons.size() + col;
+}
+
+int Storage::findPersonIndex(string name) {
+    int result = -1;
+    for (auto p : this->m_persons) {
+        result++;
+        if (p.getName == name) {
+            return result;
+        }
+    }
+    return -1;
+}
+
 // TODO
 void Storage::LoadPersons() {
     vector<vector<string> > persons = CSV::openFile(Path::peoplePath);
@@ -59,7 +74,6 @@ void Storage::LoadRelations() {
     // list add new relation
 }
 
-// TODO
 void Storage::RegenerateMatrix() {
     relationMatrix = new Relation* [m_persons.size() * m_persons.size()];
     // Pre-fill all relations as nullptr
@@ -69,9 +83,15 @@ void Storage::RegenerateMatrix() {
         }
     }
     // Map each relation into its place
+    for (auto r : this->m_metarelations) {
+        int srcpos = findPersonIndex(r.getSrc().getName());
+        int dstpos = findPersonIndex(r.getDst().getName());
+        relationMatrix[FlattenTo1D(srcpos, dstpos)] = &r;
+    }
 }
 
 void Storage::CalculateRelation() {
+    /*
     int size_p=this->m_persons.size();
     int size_r=this->m_metarelations.size();
     for(int i=0;i<size_p;i++){
@@ -85,5 +105,6 @@ void Storage::CalculateRelation() {
             }
         }
     }
+    */
 
 }
