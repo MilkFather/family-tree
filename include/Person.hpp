@@ -7,16 +7,19 @@
 
 using std::string;
 
-enum Gender {Male, Female};
+enum Gender { Male, Female };
+
+Gender Str2Gen(string s);
+string Gen2Str(Gender s);
 
 class Person {
 public:
     Person(string name, Gender gender, int age);
-    string getName();
+    string getName() const;
     void setName(string name);
-    Gender getGender();
+    Gender getGender() const;
     void setGender(Gender gender);
-    int getAge();
+    int getAge() const;
     void setAge(int age);
 
     bool operator==(Person &rhs);

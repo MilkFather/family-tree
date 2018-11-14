@@ -9,8 +9,8 @@ public:
     static const char *metaBioPath;
 };
 
-const char *Path::peoplePath = "data/people.csv";
-const char *Path::metaBioPath = "data/metabio.csv";
+const char *Path::peoplePath = /*"data/people.csv"*/"/tmp/people.csv";
+const char *Path::metaBioPath = /*"data/metabio.csv"*/"/tmp/metabio.csv";
 
 #endif
 

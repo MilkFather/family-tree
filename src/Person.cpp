@@ -9,7 +9,7 @@ Person::Person(string name, Gender gender, int age) {
     p_age = age;
 }
 
-string Person::getName() {
+string Person::getName() const {
     return p_name;
 }
 
@@ -19,7 +19,7 @@ void Person::setName(string name) {
     }
 }
 
-Gender Person::getGender() {
+Gender Person::getGender() const {
     return p_gender;
 }
 
@@ -29,7 +29,7 @@ void Person::setGender(Gender gender) {
     }
 }
 
-int Person::getAge() {
+int Person::getAge() const {
     return p_age;
 }
 
@@ -53,4 +53,16 @@ Person Person::operator=(Person &rhs) {
     p_age = rhs.p_age;
 
     return *this;
+}
+
+Gender Str2Gen(string s) {
+    if (s == "male") return Male;
+    if (s == "female") return Female;
+    return Male;
+}
+
+string Gen2Str(Gender s) {
+    if (s == Male) return "male";
+    if (s == Female) return "female";
+    return "male";
 }

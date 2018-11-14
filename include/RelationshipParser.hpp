@@ -1,6 +1,9 @@
 #ifndef RELATIONSHIP_PARSER_HPP
 #define RELATIONSHIP_PARSER_HPP
 
+#include "Person.hpp"
+#include "Relation.hpp"
+
 #include <string>
 
 using std::string;
@@ -11,13 +14,13 @@ using std::string;
 // 限制: 关系通路中不能存在环
 class RelationshipParser {
 private:
-    string relation;
-    string gender;
+    Relationship relation;
+    Gender gender;
 
 public:
-    RelationshipParser(string Gender);
-    string getRelationship();
-    void elevateRelation(string elevate);
+    RelationshipParser(Relationship rel, Gender gender);
+    Relationship getRelationship();
+    void elevateRelation(Relationship elevate);
 };
 
 #endif
