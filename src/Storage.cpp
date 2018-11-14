@@ -61,7 +61,7 @@ void Storage::LoadRelations() {
 
 // TODO
 void Storage::RegenerateMatrix() {
-    relationMatrix = new Relation* [m_persons.size() * m_persons.size];
+    relationMatrix = new Relation* [m_persons.size() * m_persons.size()];
     // Pre-fill all relations as nullptr
     for (int i = 0; i < m_persons.size(); i++) {
         for (int j = 0; j < m_persons.size(); j++) {
@@ -72,5 +72,18 @@ void Storage::RegenerateMatrix() {
 }
 
 void Storage::CalculateRelation() {
+    int size_p=this->m_persons.size();
+    int size_r=this->m_metarelations.size();
+    for(int i=0;i<size_p;i++){
+        for(int j=0;j<size_p;j++){
+            relationMatrix[i][j]->src=m_persons[i];
+            relationMatrix[i][j]->dst=m_persons[j];
+            for(int k=0;k<size_r;k++){
+                if(this->m_metarelations[k].src==m_persons[i]&&this->m_metarelations[k].dst==m_persons[j]){
+                    relationMatrix[i][j]->rel=m_metarelations[k].rel;
+                }
+            }
+        }
+    }
 
 }
